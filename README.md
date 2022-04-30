@@ -9,12 +9,15 @@ El diseño debe ser responsive.
 ## Tecnologías
 
 ### Frontend 
-● React
+React
+
 ### Backend
-● Node / Express utilizando TypeScript (preferentemente) o JavaScript
-● Un ORM como Sequelize o similar para manejar la DB
+Node / Express utilizando TypeScript (preferentemente) o JavaScript
+Un ORM como Sequelize o similar para manejar la DB
+
 ### Storage
-● Cualquier DB de tipo relacional
+Cualquier DB de tipo relacional
+
 ### Notas
-● Se valorará el buen uso de git (commits, branches, etc.)
-● Se pueden utilizar librerías extra, tanto de frontend como de backend
+Se valorará el buen uso de git (commits, branches, etc.)
+Se pueden utilizar librerías extra, tanto de frontend como de backend
