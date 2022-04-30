@@ -11,6 +11,8 @@ function prepareServerEndpoinst (expressApp) {
 
   // Handle routes
   prepareApiEndpoints(apiRouter)
+
+  // You could handle here frontend routes but those will be handle with Next.js...
 }
 
 module.exports = prepareServerEndpoinst
