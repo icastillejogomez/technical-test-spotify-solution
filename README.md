@@ -7,6 +7,7 @@ El diseño debe ser responsive.
 
 
 ## Tecnologías
+
 ### Frontend 
 ● React
 ### Backend
