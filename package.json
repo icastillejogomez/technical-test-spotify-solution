@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/icastillejogomez/technical-test-spotify/issues"
   },
-  "homepage": "https://github.com/icastillejogomez/technical-test-spotify#readme"
+  "homepage": "https://github.com/icastillejogomez/technical-test-spotify#readme",
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ]
 }
