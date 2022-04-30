@@ -10,4 +10,4 @@ function prepareArtistsEndpoints (router) {
   })
 }
 
-module.exports = prepareArtistsEndpoints
+export default prepareArtistsEndpoints

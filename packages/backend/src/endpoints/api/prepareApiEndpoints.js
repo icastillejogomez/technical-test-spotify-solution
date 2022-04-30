@@ -1,6 +1,6 @@
 // Import models endpoints
-const prepareAlbumsEndpoints = require('./albums/index')
-const prepareArtistsEndpoints = require('./artists/index')
+import prepareAlbumsEndpoints from './albums/index.js'
+import prepareArtistsEndpoints from './artists/index.js'
 
 function prepareApiEndpoints (router) {
   // Define artists endpoints
@@ -12,4 +12,4 @@ function prepareApiEndpoints (router) {
   // You can implement more API endpoints here...
 }
 
-module.exports = prepareApiEndpoints
+export default prepareApiEndpoints

@@ -10,4 +10,4 @@ function prepareAlbumsEndpoints (router) {
   })
 }
 
-module.exports = prepareAlbumsEndpoints
+export default prepareAlbumsEndpoints

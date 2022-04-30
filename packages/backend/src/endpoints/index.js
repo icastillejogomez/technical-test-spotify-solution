@@ -1,6 +1,6 @@
 // Import express stuff
-const express = require('express')
-const prepareApiEndpoints = require('./api/prepareApiEndpoints')
+import express from 'express'
+import prepareApiEndpoints from './api/prepareApiEndpoints.js'
 
 function prepareServerEndpoinst (expressApp) {
   // Create routers
@@ -15,4 +15,4 @@ function prepareServerEndpoinst (expressApp) {
   // You could handle here frontend routes but those will be handle with Next.js...
 }
 
-module.exports = prepareServerEndpoinst
+export default prepareServerEndpoinst

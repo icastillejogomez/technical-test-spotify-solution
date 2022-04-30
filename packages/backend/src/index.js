@@ -1,6 +1,6 @@
 // Import express stuff
-const express = require('express')
-const prepareServerEndpoinst = require('./endpoints/index')
+import express from 'express'
+import prepareServerEndpoinst from './endpoints/index.js'
 
 // Create express application
 const app = express()
