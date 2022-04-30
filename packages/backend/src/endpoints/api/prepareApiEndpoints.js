@@ -2,10 +2,10 @@
 const prepareAlbumsEndpoints = require('./albums/index')
 const prepareArtistsEndpoints = require('./artists/index')
 
-function prepareApiEndpoints(router) {
+function prepareApiEndpoints (router) {
   // Define artists endpoints
   prepareArtistsEndpoints(router)
-  
+
   // Define albums endpoints
   prepareAlbumsEndpoints(router)
 

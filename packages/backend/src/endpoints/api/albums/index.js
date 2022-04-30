@@ -1,5 +1,4 @@
-function prepareAlbumsEndpoints(router) {
-
+function prepareAlbumsEndpoints (router) {
   // GET artist albums
   router.get('/:artist/albums', (req, res) => {
     // Artist identifier

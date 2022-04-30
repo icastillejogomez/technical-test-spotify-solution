@@ -1,5 +1,4 @@
-function prepareArtistsEndpoints(router) {
-  
+function prepareArtistsEndpoints (router) {
   // GET artists by query
   router.get('/artists', (req, res) => {
     // Get user query
@@ -9,7 +8,6 @@ function prepareArtistsEndpoints(router) {
     // TODO: implement response
     res.status(200).json({ query })
   })
-
 }
 
 module.exports = prepareArtistsEndpoints

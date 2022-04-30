@@ -2,7 +2,7 @@
 const express = require('express')
 const prepareApiEndpoints = require('./api/prepareApiEndpoints')
 
-function prepareServerEndpoinst(expressApp) {
+function prepareServerEndpoinst (expressApp) {
   // Create routers
   const apiRouter = express.Router()
 
