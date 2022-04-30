@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
   "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/icastillejogomez/technical-test-spotify/issues"
   },
-  "homepage": "https://github.com/icastillejogomez/technical-test-spotify#readme"
+  "homepage": "https://github.com/icastillejogomez/technical-test-spotify#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
