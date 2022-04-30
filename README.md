@@ -5,9 +5,8 @@ Por cada solicitud, el backend debe almacenar en la DB la IP del usuario, la fec
 El frontend no debe comunicarse directamente con la API de Spotify. Debe comunicarse con el backend y desde este es que se debe realizar la request a la API de Spotify.
 El diseño debe ser responsive.
 
-
 ## Tecnologías
-
+a
 ### Frontend 
 React
 
