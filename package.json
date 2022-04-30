@@ -1,0 +1,19 @@
+{
+  "name": "technical-test-spotify",
+  "version": "0.0.1",
+  "description": "This is a example resolution of a technical job test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icastillejogomez/technical-test-spotify.git"
+  },
+  "author": "Ignacio F. Castillejo Gómez <i.castillejogomez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icastillejogomez/technical-test-spotify/issues"
+  },
+  "homepage": "https://github.com/icastillejogomez/technical-test-spotify#readme"
+}
