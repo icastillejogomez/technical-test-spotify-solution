@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "private": true,
   "devDependencies": {
     "nodemon": "^2.0.16",
     "standard": "^17.0.0"
