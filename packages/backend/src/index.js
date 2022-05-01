@@ -5,10 +5,16 @@ import 'dotenv/config'
 import express from 'express'
 import prepareServerEndpoinst from './endpoints/index.js'
 
+// Database initializer import
+import { startDatabaseConnection } from './entities/postgres/database.js'
+
 // Utils imports
 import checkSpotifyCredentials from './utils/checkSpotifyCredentials.js'
 
 try {
+  // Check database connection
+  await startDatabaseConnection()
+
   // Check if spotify credentials are still valid
   await checkSpotifyCredentials()
 
