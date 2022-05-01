@@ -21,7 +21,7 @@ function prepareAlbumsEndpoints (router) {
       res.status(200).json({ albums })
     } catch (error) {
       console.error(error)
-      res.status(500).end()
+      res.status(500).json()
     }
   })
 }
