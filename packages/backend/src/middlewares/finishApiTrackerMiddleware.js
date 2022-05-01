@@ -16,7 +16,7 @@ export default function finishApiTrackerMiddleware (req, res, next) {
 
   // Complete the tracker
   registry.set({
-    status: res.statusCode >= 200 && res.statusCode < 300 ? 'success' : 'error',
+    status: (res.statusCode >= 200 && res.statusCode < 300) ? 'success' : 'error', // <-- Express sometimes returns a status code of 304 Not Modified. One approach is to use a response payload with this pattern: { success: true, data: { ... }, error: { ... } } and check success field.
     statusCode: res.statusCode
   })
 
