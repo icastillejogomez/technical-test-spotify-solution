@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize'
-import { getApiHistoryModelSchema } from '../models/APIHistory.model.js'
+import { getApiHistoryModelSchema } from './models/APIHistory.model.js'
 
 // Define constants
 const POSTGRES_USERNAME = process.env.POSTGRES_USERNAME
