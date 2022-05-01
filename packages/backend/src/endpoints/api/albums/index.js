@@ -1,12 +1,28 @@
+// Handlers imports
+import getArtistAlbums from '../../../services/spotify/getArtistAlbums.js'
+
 function prepareAlbumsEndpoints (router) {
   // GET artist albums
-  router.get('/:artist/albums', (req, res) => {
+  router.get('/artists/:artist/albums', async (req, res) => {
     // Artist identifier
     const artistId = req.params.artist
+    if (!artistId) {
+      return res.status(400).json({
+        error: {
+          code: 'get-artist-albums/missing-artist-id',
+          message: 'Missing artist identifier'
+        }
+      })
+    }
 
-    // Get artist albums from spotify
-    // TODO: implement response
-    res.status(200).json({ artistId })
+    try {
+      // Get artist albums from spotify
+      const albums = await getArtistAlbums(artistId)
+      res.status(200).json({ albums })
+    } catch (error) {
+      console.error(error)
+      res.status(500).end()
+    }
   })
 }
 
