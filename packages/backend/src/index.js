@@ -1,20 +1,34 @@
+// Include .env file into process.env object
+import 'dotenv/config'
+
 // Import express stuff
 import express from 'express'
 import prepareServerEndpoinst from './endpoints/index.js'
 
-// Create express application
-const app = express()
+// Utils imports
+import checkSpotifyCredentials from './utils/checkSpotifyCredentials.js'
 
-// Define constants
-const port = process.env.PORT || 3001
+try {
+  // Check if spotify credentials are still valid
+  await checkSpotifyCredentials()
 
-// Define middlewares
-// TODO: define middlewares
+  // Create express application
+  const app = express()
 
-// Prepare routes
-prepareServerEndpoinst(app)
+  // Define constants
+  const port = process.env.PORT || 3001
 
-// Start server
-app.listen(port, () => {
-  console.log(`Server listening on http://localhost:${port}`)
-})
+  // Define middlewares
+  // TODO: define middlewares
+
+  // Prepare routes
+  prepareServerEndpoinst(app)
+
+  // Start server
+  app.listen(port, () => {
+    console.log(`Server listening on http://localhost:${port}`)
+  })
+} catch (error) {
+  console.error(error)
+  process.exit(1)
+}
