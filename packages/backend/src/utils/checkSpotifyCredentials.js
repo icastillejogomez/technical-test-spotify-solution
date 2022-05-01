@@ -1,8 +1,12 @@
+// Axios imports
 import axios from 'axios'
+
+// Spotify in-memory database imports
+import generateSpotifyUserToken from './generateSpotifyUserToken.js'
+import { setSpotifyUserToken } from '../entities/spotify/database.js'
 
 // Define constants
 const SPOTIFY_API_BASE_URL = process.env.SPOTIFY_API_BASE_URL
-const SPOTIFY_CLIENT_TOKEN = process.env.SPOTIFY_CLIENT_TOKEN
 const EXAMPLE_TRACK_ID = '2TpxZ7JUBn3uw46aR7qd6V'
 
 /**
@@ -10,9 +14,15 @@ const EXAMPLE_TRACK_ID = '2TpxZ7JUBn3uw46aR7qd6V'
  * If not it will throw an error.
  */
 export default async function checkSpotifyCredentials () {
-  // Check if token is present
-  if (!SPOTIFY_CLIENT_TOKEN) {
-    throw new Error('SPOTIFY_CLIENT_TOKEN is not defined in .env file')
+  // Try to get a fresh spotify api user token
+  const spotifyUserToken = await generateSpotifyUserToken()
+    .catch(error => {
+      // It's necessary catch the error because the function is async and node logs warnings if an error is not handled...
+      throw error
+    })
+
+  if (!spotifyUserToken) {
+    throw new Error('Was not possible to generate a spotify user token')
   }
 
   // Make a request to the Spotify API to check if the token is valid
@@ -21,7 +31,7 @@ export default async function checkSpotifyCredentials () {
     baseURL: SPOTIFY_API_BASE_URL,
     url: `v1/tracks/${EXAMPLE_TRACK_ID}`,
     headers: {
-      Authorization: `Bearer ${SPOTIFY_CLIENT_TOKEN}`
+      Authorization: `Bearer ${spotifyUserToken}`
     }
   })
     .catch(error => {
@@ -31,4 +41,7 @@ export default async function checkSpotifyCredentials () {
   if (response.status !== 200) {
     throw new Error('Spotify credentials are not valid')
   }
+
+  // Save new user token
+  setSpotifyUserToken(spotifyUserToken)
 }

@@ -1,9 +1,12 @@
 // Axios import
 import axios from 'axios'
 
+// Spotify in-memory database imports
+import { getSpotifyUserToken } from '../../entities/spotify/database.js'
+
 // Define constants
 const SPOTIFY_API_BASE_URL = process.env.SPOTIFY_API_BASE_URL
-const SPOTIFY_CLIENT_TOKEN = process.env.SPOTIFY_CLIENT_TOKEN
+const SPOTIFY_CLIENT_TOKEN = getSpotifyUserToken()
 
 const getArtistAlbums = async (artistId) => {
   const response = await axios({
