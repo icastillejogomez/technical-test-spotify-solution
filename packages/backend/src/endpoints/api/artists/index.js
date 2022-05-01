@@ -7,7 +7,12 @@ function prepareArtistsEndpoints (router) {
     // Get user query
     const query = req.query.q
     if (!query) {
-      return res.status(400).json({ error: 'Missing query' })
+      return res.status(400).json({
+        error: {
+          code: 'search-artists/missing-query',
+          message: 'Missing query'
+        }
+      })
     }
 
     try {
