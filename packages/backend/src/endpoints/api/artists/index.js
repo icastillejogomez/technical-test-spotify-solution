@@ -3,16 +3,17 @@ import searchArtists from '../../../services/spotify/searchArtists.js'
 
 function prepareArtistsEndpoints (router) {
   // GET artists by query
-  router.get('/artists', async (req, res) => {
+  router.get('/artists', async (req, res, next) => {
     // Get user query
     const query = req.query.q
     if (!query) {
-      return res.status(400).json({
+      res.status(400).json({
         error: {
           code: 'search-artists/missing-query',
           message: 'Missing query'
         }
       })
+      return next()
     }
 
     try {
@@ -22,6 +23,8 @@ function prepareArtistsEndpoints (router) {
     } catch (error) {
       console.error(error)
       res.status(500).json()
+    } finally {
+      next()
     }
   })
 }

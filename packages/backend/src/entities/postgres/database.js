@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize'
-import { defineApiHistoryModel } from '../models/APIHistory.model.js'
+import { getApiHistoryModelSchema } from '../models/APIHistory.model.js'
 
 // Define constants
 const POSTGRES_USERNAME = process.env.POSTGRES_USERNAME
@@ -14,6 +14,12 @@ const sequelize = new Sequelize(POSTGRES_DB, POSTGRES_USERNAME, POSTGRES_PASSWOR
   dialect: 'postgres'
 })
 
+// Here we're going to storage all out models as a singleton pattern
+export const modelsKeys = {
+  APIHistory: 'APIHistory'
+}
+const models = {}
+
 export function getSequelizeClient () {
   // Singleton pattern
   return sequelize
@@ -27,10 +33,14 @@ export async function startDatabaseConnection () {
     console.log('Database connection has been established successfully.')
 
     // Sync tables
-    defineApiHistoryModel()
+    models[modelsKeys.APIHistory] = sequelize.define('APIHistory', getApiHistoryModelSchema())
     await sequelize.sync()
   } catch (error) {
     console.error('Unable to connect to the database')
     throw error
   }
+}
+
+export function getModel (modelName) {
+  return models[modelName]
 }

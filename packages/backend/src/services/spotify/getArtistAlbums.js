@@ -17,6 +17,8 @@ const getArtistAlbums = async (artistId) => {
     }
   })
 
+  // Here we have to check properly the possible error, and pass trough the correr payload...
+
   return response.data.items
 }
 
